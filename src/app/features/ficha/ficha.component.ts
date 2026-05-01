@@ -12,6 +12,7 @@ import { InputNumber } from 'primeng/inputnumber';
 import { Textarea } from 'primeng/textarea';
 import { Divider } from 'primeng/divider';
 import { Card } from 'primeng/card';
+import { Rating } from 'primeng/rating';
 import { JsonService } from '../../data/services/json.service';
 import { Ficha } from '../../core/models/ficha.model';
 
@@ -26,6 +27,7 @@ import { Ficha } from '../../core/models/ficha.model';
     Textarea,
     Divider,
     Card,
+    Rating,
   ],
   templateUrl: './ficha.component.html',
   styleUrl: './ficha.component.css',
@@ -54,20 +56,20 @@ export class FichaComponent {
       reputacao:  [''],
       dinheiro:   [null],
       atributos: this.fb.group({
-        fisico:    [null, [Validators.min(0), Validators.max(5)]],
-        agilidade: [null, [Validators.min(0), Validators.max(5)]],
-        intelecto: [null, [Validators.min(0), Validators.max(5)]],
-        coragem:   [null, [Validators.min(0), Validators.max(5)]],
+        fisico:    [0, [Validators.min(0), Validators.max(5)]],
+        agilidade: [0, [Validators.min(0), Validators.max(5)]],
+        intelecto: [0, [Validators.min(0), Validators.max(5)]],
+        coragem:   [0, [Validators.min(0), Validators.max(5)]],
       }),
       antecedentes: this.fb.group({
-        combate:    [null, [Validators.min(0), Validators.max(5)]],
-        negocios:   [null, [Validators.min(0), Validators.max(5)]],
-        montaria:   [null, [Validators.min(0), Validators.max(5)]],
-        tradicao:   [null, [Validators.min(0), Validators.max(5)]],
-        labuta:     [null, [Validators.min(0), Validators.max(5)]],
-        exploracao: [null, [Validators.min(0), Validators.max(5)]],
-        roubo:      [null, [Validators.min(0), Validators.max(5)]],
-        medicina:   [null, [Validators.min(0), Validators.max(5)]],
+        combate:    [0, [Validators.min(0), Validators.max(5)]],
+        negocios:   [0, [Validators.min(0), Validators.max(5)]],
+        montaria:   [0, [Validators.min(0), Validators.max(5)]],
+        tradicao:   [0, [Validators.min(0), Validators.max(5)]],
+        labuta:     [0, [Validators.min(0), Validators.max(5)]],
+        exploracao: [0, [Validators.min(0), Validators.max(5)]],
+        roubo:      [0, [Validators.min(0), Validators.max(5)]],
+        medicina:   [0, [Validators.min(0), Validators.max(5)]],
       }),
       habilidades: this.fb.array([]),
       equipamento: this.fb.array([]),
@@ -75,8 +77,8 @@ export class FichaComponent {
     cavalo: this.fb.group({
       nome:       [''],
       fidelidade: [null, [Validators.min(0), Validators.max(4)]],
-      potencia:   [null, [Validators.min(0), Validators.max(5)]],
-      vigor:      [null, [Validators.min(0), Validators.max(5)]],
+      potencia:   [0, [Validators.min(0), Validators.max(5)]],
+      vigor:      [0, [Validators.min(0), Validators.max(5)]],
       vida:       [null],
       defesa:     [null],
       dano:       [null],

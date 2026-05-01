@@ -92,3 +92,13 @@ textarea.p-textarea {
   resize: vertical;
   min-height: 64px;
 }
+
+/* ── Rating (círculos de atributos/antecedentes) ─────────────────────── */
+p-rating {
+  display: block;
+}
+
+p-rating .p-rating-icon {
+  font-size: 1.1rem;
+  color: var(--p-primary-color, #6366f1);
+}

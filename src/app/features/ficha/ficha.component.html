@@ -1,38 +1,32 @@
 <div class="ficha-wrapper p-3">
-
   <!-- ── Input de arquivo oculto ─────────────────────────────────────── -->
   <input
     type="file"
     accept=".json"
     #fileInput
-    style="display:none"
+    style="display: none"
     (change)="importarFicha($event)"
   />
 
   <!-- ── Toolbar: Exportar / Importar ────────────────────────────────── -->
-  <div class="ficha-toolbar flex gap-2 mb-4 p-3">
-    <p-button
-      id="btn-exportar"
-      label="Exportar ficha"
-      icon="pi pi-download"
-      severity="secondary"
-      [outlined]="true"
-      (onClick)="exportarFicha()"
-      class="flex-1"
-    />
+  <div class="ficha-toolbar flex p-4 justify-content-between">
     <p-button
       id="btn-importar"
       label="Importar ficha"
       icon="pi pi-upload"
-      severity="secondary"
-      [outlined]="true"
+      severity="primary"
       (onClick)="triggerFileInput()"
-      class="flex-1"
+    />
+    <p-button
+      id="btn-exportar"
+      label="Exportar ficha"
+      icon="pi pi-download"
+      severity="primary"
+      (onClick)="exportarFicha()"
     />
   </div>
 
   <form [formGroup]="fichaForm">
-
     <!-- ════════════════════════════════════════════════════════════════ -->
     <!--  SEÇÃO: PERSONAGEM                                              -->
     <!-- ════════════════════════════════════════════════════════════════ -->
@@ -45,71 +39,121 @@
       </ng-template>
 
       <div formGroupName="personagem">
-
-        <!-- Nome -->
+        <!-- Nome / Nível / Vida -->
         <div class="grid">
-          <div class="col-12">
+          <div class="col-12 md:col-6 flex flex-column">
             <label class="field-label" for="p-nome">Nome</label>
-            <input id="p-nome" pInputText formControlName="nome" class="w-full" placeholder="Nome do personagem" />
+            <input
+              id="p-nome"
+              pInputText
+              formControlName="nome"
+              class="w-full"
+              placeholder="Nome do personagem"
+            />
           </div>
-        </div>
-
-        <!-- Nível / Vida -->
-        <div class="grid mt-2">
-          <div class="col-6">
-            <label class="field-label" for="p-nivel">Nível <span class="field-hint">(máx 6)</span></label>
+          <div class="col-6 md:col-3 flex flex-column">
+            <label class="field-label" for="p-nivel"
+              >Nível <span class="field-hint">(máx 6)</span></label
+            >
             <p-inputnumber
               id="p-nivel"
               formControlName="nivel"
-              [min]="0" [max]="6"
+              [min]="0"
+              [max]="6"
               [showButtons]="true"
               [useGrouping]="false"
               class="w-full"
             />
           </div>
-          <div class="col-6">
+          <div class="col-6 md:col-3 flex flex-column">
             <label class="field-label" for="p-vida">Vida</label>
-            <p-inputnumber id="p-vida" formControlName="vida" [min]="0" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="p-vida"
+              formControlName="vida"
+              [min]="0"
+              [showButtons]="true"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
         </div>
 
         <!-- Defesa / Iniciativa / Ações -->
         <div class="grid mt-2">
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="p-defesa">Defesa</label>
-            <p-inputnumber id="p-defesa" formControlName="defesa" [min]="0" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="p-defesa"
+              formControlName="defesa"
+              [min]="0"
+              [showButtons]="true"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="p-iniciativa">Iniciativa</label>
-            <p-inputnumber id="p-iniciativa" formControlName="iniciativa" [min]="0" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="p-iniciativa"
+              formControlName="iniciativa"
+              [min]="0"
+              [showButtons]="true"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="p-acoes">Ações</label>
-            <p-inputnumber id="p-acoes" formControlName="acoes" [min]="0" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="p-acoes"
+              formControlName="acoes"
+              [min]="0"
+              [showButtons]="true"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
         </div>
 
         <!-- Tormento -->
         <div class="grid mt-2">
-          <div class="col-12">
+          <div class="col-12 flex flex-column">
             <label class="field-label" for="p-tormento">Tormento</label>
-            <input id="p-tormento" pInputText formControlName="tormento" class="w-full" placeholder="Tormento do personagem" />
+            <input
+              id="p-tormento"
+              pInputText
+              formControlName="tormento"
+              class="w-full"
+              placeholder="Tormento do personagem"
+            />
           </div>
         </div>
 
         <!-- Recompensa / Reputação / Dinheiro -->
         <div class="grid mt-2">
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="p-recompensa">Recompensa</label>
-            <p-inputnumber id="p-recompensa" formControlName="recompensa" [min]="0" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="p-recompensa"
+              formControlName="recompensa"
+              [min]="0"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="p-reputacao">Reputação</label>
             <input id="p-reputacao" pInputText formControlName="reputacao" class="w-full" />
           </div>
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="p-dinheiro">Dinheiro</label>
-            <p-inputnumber id="p-dinheiro" formControlName="dinheiro" [min]="0" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="p-dinheiro"
+              formControlName="dinheiro"
+              [min]="0"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
         </div>
 
@@ -118,21 +162,45 @@
         <!-- ── Atributos ──────────────────────────────────────────────── -->
         <p class="subsection-title">Atributos <span class="field-hint">(máx 5)</span></p>
         <div class="grid" formGroupName="atributos">
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column">
             <label class="field-label" for="a-fisico">Físico</label>
-            <p-inputnumber id="a-fisico" formControlName="fisico" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="a-fisico"
+              formControlName="fisico"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column">
             <label class="field-label" for="a-agilidade">Agilidade</label>
-            <p-inputnumber id="a-agilidade" formControlName="agilidade" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="a-agilidade"
+              formControlName="agilidade"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column">
             <label class="field-label" for="a-intelecto">Intelecto</label>
-            <p-inputnumber id="a-intelecto" formControlName="intelecto" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="a-intelecto"
+              formControlName="intelecto"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column">
             <label class="field-label" for="a-coragem">Coragem</label>
-            <p-inputnumber id="a-coragem" formControlName="coragem" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="a-coragem"
+              formControlName="coragem"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
         </div>
 
@@ -141,37 +209,85 @@
         <!-- ── Antecedentes ───────────────────────────────────────────── -->
         <p class="subsection-title">Antecedentes <span class="field-hint">(máx 5)</span></p>
         <div class="grid" formGroupName="antecedentes">
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column mb-3">
             <label class="field-label" for="ant-combate">Combate</label>
-            <p-inputnumber id="ant-combate" formControlName="combate" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="ant-combate"
+              formControlName="combate"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column mb-3">
             <label class="field-label" for="ant-negocios">Negócios</label>
-            <p-inputnumber id="ant-negocios" formControlName="negocios" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="ant-negocios"
+              formControlName="negocios"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column mb-3">
             <label class="field-label" for="ant-montaria">Montaria</label>
-            <p-inputnumber id="ant-montaria" formControlName="montaria" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="ant-montaria"
+              formControlName="montaria"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column mb-3">
             <label class="field-label" for="ant-tradicao">Tradição</label>
-            <p-inputnumber id="ant-tradicao" formControlName="tradicao" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="ant-tradicao"
+              formControlName="tradicao"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column mb-3">
             <label class="field-label" for="ant-labuta">Labuta</label>
-            <p-inputnumber id="ant-labuta" formControlName="labuta" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="ant-labuta"
+              formControlName="labuta"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column mb-3">
             <label class="field-label" for="ant-exploracao">Exploração</label>
-            <p-inputnumber id="ant-exploracao" formControlName="exploracao" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="ant-exploracao"
+              formControlName="exploracao"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column mb-3">
             <label class="field-label" for="ant-roubo">Roubo</label>
-            <p-inputnumber id="ant-roubo" formControlName="roubo" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="ant-roubo"
+              formControlName="roubo"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-6 md:col-3">
+          <div class="col-6 md:col-3 flex flex-column mb-3">
             <label class="field-label" for="ant-medicina">Medicina</label>
-            <p-inputnumber id="ant-medicina" formControlName="medicina" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-rating
+              id="ant-medicina"
+              formControlName="medicina"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
         </div>
 
@@ -185,15 +301,31 @@
         <div formArrayName="habilidades">
           @for (hab of habilidades.controls; track $index) {
             <div [formGroupName]="$index" class="array-item grid align-items-start mt-2">
-              <div class="col-12">
+              <div class="col-12 flex flex-column">
                 <label class="field-label" [for]="'hab-nome-' + $index">Nome</label>
-                <input [id]="'hab-nome-' + $index" pInputText formControlName="nome" class="w-full" placeholder="Nome da habilidade" />
+                <input
+                  [id]="'hab-nome-' + $index"
+                  pInputText
+                  formControlName="nome"
+                  class="w-full"
+                  placeholder="Nome da habilidade"
+                />
               </div>
-              <div class="col-10">
+              <div class="col-10 flex flex-column">
                 <label class="field-label" [for]="'hab-desc-' + $index">Descrição</label>
-                <textarea [id]="'hab-desc-' + $index" pTextarea formControlName="descricao" class="w-full" rows="2" placeholder="Descrição da habilidade"></textarea>
+                <textarea
+                  [id]="'hab-desc-' + $index"
+                  pTextarea
+                  formControlName="descricao"
+                  class="w-full"
+                  rows="2"
+                  placeholder="Descrição da habilidade"
+                ></textarea>
               </div>
-              <div class="col-2 flex align-items-end justify-content-end" style="padding-bottom: 0.25rem">
+              <div
+                class="col-2 flex align-items-end justify-content-end"
+                style="padding-bottom: 0.25rem"
+              >
                 <p-button
                   [id]="'hab-remover-' + $index"
                   icon="pi pi-trash"
@@ -212,7 +344,7 @@
 
         <p-button
           id="btn-add-habilidade"
-          label="+ Adicionar Habilidade"
+          label="Adicionar Habilidade"
           severity="secondary"
           [text]="true"
           icon="pi pi-plus"
@@ -233,13 +365,25 @@
         <div formArrayName="equipamento">
           @for (equip of equipamento.controls; track $index) {
             <div [formGroupName]="$index" class="grid align-items-end mt-2">
-              <div class="col-6">
+              <div class="col-6 flex flex-column">
                 <label class="field-label" [for]="'eq-nome-' + $index">Nome</label>
-                <input [id]="'eq-nome-' + $index" pInputText formControlName="nome" class="w-full" placeholder="Nome do item" />
+                <input
+                  [id]="'eq-nome-' + $index"
+                  pInputText
+                  formControlName="nome"
+                  class="w-full"
+                  placeholder="Nome do item"
+                />
               </div>
-              <div class="col-4">
+              <div class="col-4 flex flex-column">
                 <label class="field-label" [for]="'eq-dano-' + $index">Dano</label>
-                <input [id]="'eq-dano-' + $index" pInputText formControlName="dano" class="w-full" placeholder="Ex: 1d6" />
+                <input
+                  [id]="'eq-dano-' + $index"
+                  pInputText
+                  formControlName="dano"
+                  class="w-full"
+                  placeholder="Ex: 1d6"
+                />
               </div>
               <div class="col-2 flex justify-content-end">
                 <p-button
@@ -257,7 +401,7 @@
 
         <p-button
           id="btn-add-equipamento"
-          label="+ Adicionar Equipamento"
+          label="Adicionar Equipamento"
           severity="secondary"
           [text]="true"
           icon="pi pi-plus"
@@ -265,8 +409,8 @@
           (onClick)="addEquipamento()"
           styleClass="mt-2"
         />
-
-      </div><!-- /formGroupName="personagem" -->
+      </div>
+      <!-- /formGroupName="personagem" -->
     </p-card>
 
     <!-- ════════════════════════════════════════════════════════════════ -->
@@ -281,44 +425,96 @@
       </ng-template>
 
       <div formGroupName="cavalo">
-
         <!-- Nome -->
         <div class="grid">
-          <div class="col-12">
+          <div class="col-12 flex flex-column">
             <label class="field-label" for="c-nome">Nome</label>
-            <input id="c-nome" pInputText formControlName="nome" class="w-full" placeholder="Nome do cavalo" />
+            <input
+              id="c-nome"
+              pInputText
+              formControlName="nome"
+              class="w-full"
+              placeholder="Nome do cavalo"
+            />
           </div>
         </div>
 
         <!-- Fidelidade / Potência / Vigor -->
         <div class="grid mt-2">
-          <div class="col-4">
-            <label class="field-label" for="c-fidelidade">Fidelidade <span class="field-hint">(máx 4)</span></label>
-            <p-inputnumber id="c-fidelidade" formControlName="fidelidade" [min]="0" [max]="4" [showButtons]="true" [useGrouping]="false" class="w-full" />
+          <div class="col-4 flex flex-column">
+            <label class="field-label" for="c-fidelidade"
+              >Fidelidade <span class="field-hint">(máx 4)</span></label
+            >
+            <p-inputnumber
+              id="c-fidelidade"
+              formControlName="fidelidade"
+              [min]="0"
+              [max]="4"
+              [showButtons]="true"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
-          <div class="col-4">
-            <label class="field-label" for="c-potencia">Potência <span class="field-hint">(máx 5)</span></label>
-            <p-inputnumber id="c-potencia" formControlName="potencia" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+          <div class="col-4 flex flex-column">
+            <label class="field-label" for="c-potencia"
+              >Potência <span class="field-hint">(máx 5)</span></label
+            >
+            <p-rating
+              id="c-potencia"
+              formControlName="potencia"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
-          <div class="col-4">
-            <label class="field-label" for="c-vigor">Vigor <span class="field-hint">(máx 5)</span></label>
-            <p-inputnumber id="c-vigor" formControlName="vigor" [min]="0" [max]="5" [showButtons]="true" [useGrouping]="false" class="w-full" />
+          <div class="col-4 flex flex-column">
+            <label class="field-label" for="c-vigor"
+              >Vigor <span class="field-hint">(máx 5)</span></label
+            >
+            <p-rating
+              id="c-vigor"
+              formControlName="vigor"
+              [stars]="5"
+              iconOnClass="pi pi-circle-fill"
+              iconOffClass="pi pi-circle"
+            />
           </div>
         </div>
 
         <!-- Vida / Defesa / Dano -->
         <div class="grid mt-2">
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="c-vida">Vida</label>
-            <p-inputnumber id="c-vida" formControlName="vida" [min]="0" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="c-vida"
+              formControlName="vida"
+              [min]="0"
+              [showButtons]="true"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="c-defesa">Defesa</label>
-            <p-inputnumber id="c-defesa" formControlName="defesa" [min]="0" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="c-defesa"
+              formControlName="defesa"
+              [min]="0"
+              [showButtons]="true"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
-          <div class="col-4">
+          <div class="col-4 flex flex-column">
             <label class="field-label" for="c-dano">Dano</label>
-            <p-inputnumber id="c-dano" formControlName="dano" [min]="0" [showButtons]="true" [useGrouping]="false" class="w-full" />
+            <p-inputnumber
+              id="c-dano"
+              formControlName="dano"
+              [min]="0"
+              [showButtons]="true"
+              [useGrouping]="false"
+              class="w-full"
+            />
           </div>
         </div>
 
@@ -328,15 +524,19 @@
         <div class="array-header">
           <p class="subsection-title mb-0">
             Equipamentos
-            <span class="field-hint">({{ equipamentosCavalo.length }}/{{ MAX_EQUIPAMENTOS_CAVALO }})</span>
+            <span class="field-hint"
+              >({{ equipamentosCavalo.length }}/{{ MAX_EQUIPAMENTOS_CAVALO }})</span
+            >
           </p>
         </div>
 
         <div formArrayName="equipamentos">
           @for (eq of equipamentosCavalo.controls; track $index) {
             <div class="grid align-items-center mt-2">
-              <div class="col-10">
-                <label class="field-label" [for]="'ceq-' + $index">Equipamento {{ $index + 1 }}</label>
+              <div class="col-10 flex flex-column">
+                <label class="field-label" [for]="'ceq-' + $index"
+                  >Equipamento {{ $index + 1 }}</label
+                >
                 <input
                   [id]="'ceq-' + $index"
                   pInputText
@@ -345,7 +545,10 @@
                   placeholder="Nome do equipamento"
                 />
               </div>
-              <div class="col-2 flex align-items-end justify-content-end" style="padding-bottom: 0.25rem">
+              <div
+                class="col-2 flex align-items-end justify-content-end"
+                style="padding-bottom: 0.25rem"
+              >
                 <p-button
                   [id]="'ceq-remover-' + $index"
                   icon="pi pi-trash"
@@ -361,7 +564,7 @@
 
         <p-button
           id="btn-add-eq-cavalo"
-          label="+ Adicionar Equipamento"
+          label="Adicionar Equipamento"
           severity="secondary"
           [text]="true"
           icon="pi pi-plus"
@@ -369,9 +572,8 @@
           (onClick)="addEquipamentoCavalo()"
           styleClass="mt-2"
         />
-
-      </div><!-- /formGroupName="cavalo" -->
+      </div>
+      <!-- /formGroupName="cavalo" -->
     </p-card>
-
   </form>
 </div>

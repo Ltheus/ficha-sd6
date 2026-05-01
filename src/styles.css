@@ -1,8 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeflex/primeflex.css";
-@import "primeicons/primeicons.css";
+@import 'primeflex/primeflex.css';
+@import 'primeicons/primeicons.css';
+@import url('https://fonts.googleapis.com/css2?family=Smokum&family=Stardos+Stencil:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Stardos Stencil', serif;
+}
 
 body {
   margin: 0;
   background: var(--p-surface-ground, #f9fafb);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Smokum', sans-serif;
 }
