@@ -1,5 +1,1 @@
-<div class="flex gap-2">
-  <p-button label="Exportar Teste" icon="pi pi-download" (onClick)="testDownload()" />
-  <input type="file" #fileInput (change)="testUpload($event)" accept=".json" style="display: none;" />
-  <p-button label="Importar" icon="pi pi-upload" (onClick)="fileInput.click()" severity="secondary" />
-</div>
+<router-outlet />

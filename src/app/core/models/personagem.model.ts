@@ -25,16 +25,12 @@ export interface Personagem {
     roubo: number;
     medicina: number;
   };
-  habilidades: [
-    {
-      nome: string;
-      descricao: string;
-    },
-  ];
-  equipamento: [
-    {
-      nome: string;
-      dano: string;
-    },
-  ];
+  habilidades: {
+    nome: string;
+    descricao: string;
+  }[];
+  equipamento: {
+    nome: string;
+    dano: string;
+  }[];
 }
