@@ -118,6 +118,16 @@ export class FichaComponent {
     this.equipamento.removeAt(i);
   }
 
+  // ── Helpers: Cavalo ───────────────────────────────────────────────────
+  addCavalo(): void {
+    this.fichaForm.get('cavalo.nome')?.setValue('Novo Cavalo');
+  }
+
+  removeCavalo(): void {
+    this.fichaForm.get('cavalo')?.reset();
+    this.equipamentosCavalo.clear();
+  }
+
   // ── Helpers de FormArray: Equipamentos (Cavalo) ───────────────────────
   addEquipamentoCavalo(): void {
     if (this.equipamentosCavalo.length >= this.MAX_EQUIPAMENTOS_CAVALO) return;

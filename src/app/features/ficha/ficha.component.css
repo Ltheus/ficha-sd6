@@ -1,7 +1,13 @@
 /* ── Layout wrapper ───────────────────────────────────────────────────── */
 .ficha-wrapper {
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 auto;
+}
+
+/* ── Grid ─────────────────────────────────────────────────────────────── */
+.grid {
+  width: 100%;
+  margin: 0;
 }
 
 /* ── Toolbar ──────────────────────────────────────────────────────────── */
@@ -68,23 +74,27 @@
 }
 
 .array-item {
-  background: var(--p-surface-ground, #f9fafb);
+  background: transparent;
+  border: 1px solid var(--p-surface-border, #e5e7eb);
   border-radius: var(--p-border-radius, 6px);
   padding: 0.5rem;
 }
 
 /* ── InputNumber full width fix ───────────────────────────────────────── */
 p-inputnumber {
+  width: 100% !important;
   display: block;
-  width: 100%;
 }
 
-p-inputnumber span.p-inputnumber {
-  width: 100%;
+p-inputnumber > span.p-inputnumber {
+  width: 100% !important;
+  display: flex;
 }
 
-p-inputnumber input.p-inputnumber-input {
-  width: 100%;
+p-inputnumber .p-inputnumber-input {
+  width: 100% !important;
+  flex: 1 1 auto !important;
+  min-width: 0;
 }
 
 /* ── Textarea full width ──────────────────────────────────────────────── */
@@ -95,7 +105,9 @@ textarea.p-textarea {
 
 /* ── Rating (círculos de atributos/antecedentes) ─────────────────────── */
 p-rating {
-  display: block;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 p-rating .p-rating-icon {
