@@ -1,0 +1,76 @@
+{
+  "nome": "Luisa Gomes de Assis",
+  "nivel": 3,
+  "vida": 10,
+  "defesa": 5,
+  "iniciativa": 1,
+  "acoes": 2,
+  "tormento": "vicio em algo bizarrooo",
+  "recompensa": 0,
+  "reputacao": "Neutra",
+  "dinheiro": 61,
+  "atributos": {
+    "fisico": 0,
+    "agilidade": 1,
+    "intelecto": 4,
+    "coragem": 0
+  },
+  "antecedentes": {
+    "combate": 0,
+    "negocios": 1,
+    "montaria": 0,
+    "tradicao": 3,
+    "labuta": 0,
+    "exploracao": 3,
+    "roubo": 0,
+    "medicina": 1
+  },
+  "habilidades": [
+    {
+      "nome": "Born to be Wild",
+      "descricao": "+1 em furtividade e percepção"
+    },
+    {
+      "nome": "Sweet emotion",
+      "descricao": "2 usos, concede bonus para aliados: +1 ação / +1d6 pv / +1 em ataques"
+    },
+    {
+      "nome": "More than a Feeling",
+      "descricao": "teste de negócios para fazer 2 perguntas ao mestre"
+    }
+  ],
+  "equipamento": [
+    {
+      "nome": "Kit de escavação",
+      "dano": "-"
+    },
+    {
+      "nome": "Pistola (10 balas)",
+      "dano": "1d6"
+    },
+    {
+      "nome": "Faca",
+      "dano": "1d3"
+    },
+    {
+      "nome": "Maço de Tabaco",
+      "dano": "-"
+    },
+    {
+      "nome": "Cartela de Analgésico (2)",
+      "dano": "(cura) 1d3"
+    },
+    {
+      "nome": "Antídoto para Venenos",
+      "dano": "-"
+    },
+    {
+      "nome": "Vara de pescar",
+      "dano": "-"
+    },
+    {
+      "nome": "Camera Fotográfica",
+      "dano": "-"
+    }
+  ]
+}
