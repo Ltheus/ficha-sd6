@@ -1,3 +1,4 @@
+//Angular
 import { Component, inject, viewChild, ElementRef } from '@angular/core';
 import {
   FormBuilder,
@@ -6,6 +7,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+
+//Primeng
 import { Button } from 'primeng/button';
 import { InputText } from 'primeng/inputtext';
 import { InputNumber } from 'primeng/inputnumber';
@@ -13,9 +16,14 @@ import { Textarea } from 'primeng/textarea';
 import { Divider } from 'primeng/divider';
 import { Card } from 'primeng/card';
 import { Rating } from 'primeng/rating';
+import { TabsModule } from 'primeng/tabs';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { ToolbarModule } from 'primeng/toolbar';
+import { TooltipModule } from 'primeng/tooltip';
+
+//Custom
 import { JsonService } from '../../data/services/json.service';
 import { Ficha } from '../../core/models/ficha.model';
-
 @Component({
   selector: 'app-ficha',
   standalone: true,
@@ -24,10 +32,14 @@ import { Ficha } from '../../core/models/ficha.model';
     Button,
     InputText,
     InputNumber,
-    Textarea,
     Divider,
     Card,
     Rating,
+    TabsModule,
+    ScrollPanelModule,
+    ToolbarModule,
+    TooltipModule,
+    Textarea
   ],
   templateUrl: './ficha.component.html',
   styleUrl: './ficha.component.css',
